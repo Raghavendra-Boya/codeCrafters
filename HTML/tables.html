@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,td{
+            border: 2px dashed blue;
+            text-align: center;
+            padding: 5px 0px;
+        }
+        /* td{
+             border: 2px dashed blue;
+        } */
+         table{
+            width: 50%;
+            background-color: aqua;
+         }
+    </style>
+</head>
+<body>
+    <!--
+    WHat is Tables:
+    
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    -->
+
+    <table  style="border-collapse: collapse; border:1px solid red">
+        <tr >
+            <th >Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td style="background-color: red; color: white;" colspan="2">Sai</td>
+            <!-- <td>25</td> -->
+            <td rowspan="2">PFS</td>
+        </tr>
+        <tr>
+            <td>Kumar</td>
+            <td>40</td>
+            <!-- <td>PFS</td> -->
+        </tr>
+    </table>
+    <p>Lorem <b>ipsum</b> <strong>dolor</strong> sit, amet consectetur adipisicing elit. Officia, iure!</p>
+</body>
+</html>
