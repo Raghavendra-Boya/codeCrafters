@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    withou forms:
+    -user cannot sed data to DB
+    -no login system
+    -there is no interaction b/w application and user
+    -no search unctuonaluty
+    -no file uploads
+
+    syntax:
+    <form>
+        input fiealts
+        <input>
+    </form>
+    
+    <fiealdset></fiealdset>
+    legend
+    
+    -->
+
+    <form action="#" method="post">
+       
+       <fieldset>
+        <legend>Text Based Input Elements</legend>
+         <input type="text" id="name" placeholder="Enter Name" name="UserName" required autofocus minlength="3" maxlength="10" autocomplete="off" value="Deafult Text" readonly>
+        <input type="password" placeholder="Password" name="Password" >
+        <input type="email" placeholder="email" name="email" autocomplete="off">
+        <input type="tel" placeholder="Phone" name="phone" pattern="[0-9]{10}">
+        <input type="url" placeholder="URL" name="url">
+        <input type="search" >
+
+
+       </fieldset>
+       <fieldset>
+        <legend>Number & Date Inputs</legend>
+        <input type="number" step="2" min="0" max="100">
+        <input type="date" min="2000-01-01" max="2030-01-01">
+        <input type="time">
+        <input type="datetime-local">
+        <input type="month">
+        <input type="week">
+        <input type="range">
+       </fieldset>
+
+       <fieldset>
+        <legend>Selection Input Elements</legend>
+
+        <label for="">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+
+        <!--
+        type="checkbox"
+        allow multoles selections
+        -->
+        <label for="">Skill set:</label>
+        <input type="checkbox" name="skill" value="html">
+        <label for="">HTML</label>
+        <input type="checkbox" name="skill" value="css">
+        <label for="">CSS</label>
+        <select name="course">
+            <option value="">---select---</option>
+
+            <option value="java">JAVA</option>
+            <option value="py">Python</option>
+            <option value="node">Node</option>
+            <option value="React">React</option>
+
+            
+
+        </select>
+
+       </fieldset>
+
+       <fieldset>
+        <legend>Media & file Inputs</legend>
+        <input type="file" accept=".pdf,.doc,.docx" multiple>
+        <input type="color" value="blue">
+
+        <textarea name="" id="" rows="5" cols="30"></textarea>
+
+        <input list="browsers" >
+        <datalist id="browsers">
+            <option value="chrome">
+                <option value="Edge">
+
+              <option value="Firefox">
+        </datalist>
+
+        <input type="submit">
+        <input type="reset">
+        <input type="button" value="Custom Button">
+      
+       </fieldset>
+
+       <input type="hidden" placeholder="disabled input" >
+
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>
