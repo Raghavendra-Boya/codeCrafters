@@ -1,0 +1,92 @@
+/*
+WHat is Box Model: 
+
+with out box model:
+1. elements would stick togather
+2.no spacing around the content
+
+with box model:
+1. proper spacing
+2. Better UI 
+3. profinal layouts 
+
+components:
+1. content
+2. padding
+3. border
+4. matgin
+
+
+*/
+
+.btn{
+  padding-left: 20px;
+    /* border: 2px solid blue; */
+    border-bottom-width: 3px;
+    border-top-width: 3px;
+
+    border-left-width: 3px;
+    border-right-width: 3px;
+
+    border-radius: 50%;
+    margin-left: -30px;
+
+
+}
+
+.box{
+    width: 240px;
+    height: 200px;
+    background-color: aquamarine;
+}
+.box1{
+   padding: 100px;
+   border: 10px solid red;
+   box-sizing: border-box;
+    
+}
+section{
+    height: 400px;
+    background-color: brown;
+}
+/* .box2{
+    margin-top: 50px;
+    
+} */
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.profile-card{
+    width: 300px;
+    border: 3px solid blue;
+    margin-left: 100px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:10px 10px 10px 0px red ;
+}
+.profile-card>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid blue;
+}
+.user-details>h2,p{
+margin: 10px 0px;
+}
+.user-details>button{
+    padding: 10px 20px;
+    background-color: blue;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    
+}
+
+.profile-card:hover button{
+    background-color: aqua;
+    box-shadow:0px 0px 5px 10px  red ;
+}

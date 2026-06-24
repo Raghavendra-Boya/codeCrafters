@@ -1,0 +1,131 @@
+h1{
+    color: red;
+}
+
+/*
+Selectors:
+1. element selector(tagNme)
+2. grobal Slector(*)
+3. class selsctor(.)
+4. id selector(#)//id="value"
+5. group selector(,)
+6. speudo class(:)
+7. speudo-element(::)
+    :hover
+8. combination selector:
+combination selectore are used to selevt elements based on the relatiobnship with other elements
+
+1. child selectors: 
+    1.1 direct child selector(>)
+    1.2 descendent selector(space)
+2. sibling selctors:
+    2.1 adjacent sibling selctor(+)
+    2.2 General Sibling slector(~)
+
+*/
+
+*{
+    margin: 0px;
+    border: 0px;
+}
+
+.para{
+    font-size: 40px;
+}
+
+#unique{
+    color: aqua;
+}
+h1,h2,h3,h4,h5,h6{
+    background-color: blue;
+}
+
+.btn{
+    background-color: rgb(64, 64, 196);
+    color: white;
+}
+.btn:hover{
+    background-color: blue;
+    color: rgb(92, 3, 3);
+}
+.btn:active{
+    width: 200px;
+}
+input{
+    border: 2px solid black;
+    outline: none;
+}
+input:focus{
+    background-color: red;
+    border: 2px solid blue;
+    padding: 10px;
+}
+a:visited{
+    color:red;
+   
+}
+a:link{
+    color:green;
+}
+#gender:checked{
+    width: 50px;
+} 
+
+li:nth-child(2n+1){
+    color: red;
+}
+
+.loremText::selection{
+background-color: rgb(1, 6, 6);
+color: red;
+
+}
+input::placeholder{
+    color: red;
+}
+li::marker{
+    color: red;
+}
+
+
+/* .ceo p{
+    color:red;
+} */
+
+.ceo>.manager,.hr{
+    border: 2px solid green;
+}
+
+a+p{
+    color: chocolate;
+}
+.para1 .para2{
+    font-size: 30px;
+}
+#title{
+    color: green;
+}
+
+h1{
+    color: darkslateblue;
+}
+.heading{
+    color: blue;
+}
+
+/*
+inile styles   1000
+ID selector     100
+class           10
+pseudo class    10
+element selector 1
+pseudo element  1
+universal       0
+*/
+
+#company .employee{
+    color: red;
+}
+div p{
+    color: green;
+}
