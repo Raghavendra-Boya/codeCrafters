@@ -1,0 +1,67 @@
+/*
+-move elements anywhere in webpage
+-fix elements to the screen
+-ovely the elements
+-create badges
+-create sticky menys
+
+types positions:
+1. static
+2. relative
+3. absolute
+4. fixed
+5. sticky
+
+1.static:default position for all elements in HTML file
+
+top,bottom,left,right properties are not going to work
+
+2. relative: 
+move element relative to its original position
+
+3. absolute:
+removes the elements from its normal document flow
+moves relative to its parent
+
+*/
+
+.box{
+    width: 150px;
+    height: 150px;
+ 
+    
+}
+.static{
+    position:static;
+    top:200px;
+       background-color: aqua;
+}
+
+.relative{
+background-color: gray;
+position: relative;
+top: 50px;
+}
+.absolute{
+    background-color: red;
+position: absolute;
+right: 50px;
+}
+.parent{
+    background-color: rgb(74, 74, 74);
+    height: 300px;
+    position: relative;
+    width: 40%;
+    left: 200px;
+}
+
+.fixed{
+    background-color: green;
+    position: fixed;
+    top: 200px;
+}
+.sticky{
+    position: sticky;
+    top:500px;
+    left: 500px;
+}

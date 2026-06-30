@@ -1,0 +1,54 @@
+/*
+
+what is transform: 
+transform ois used to change the shape, position,size,angle of an element without effecting the normal documwent flow
+
+it can::after
+-move the elements
+-rotate the elements
+-resize elements
+-2D/3D effects
+
+why: 
+
+without ransform: 
+-websiotes looks static
+-UI feels boring
+
+with transform: 
+-attractive UI
+-increate effects
+
+
+where: 
+E-commerce cards                    card lift effect
+buttons                             zoom effect
+gaming application                  rotate effects
+
+transform: translate(x,y)
+transform:sclae(1.5);
+transform: rotate(45deg);
+
+*/
+
+.box{
+    width:200px;
+    height: 200px;
+    background-color: aqua;
+    text-align: center;
+    transition-duration: 2s;
+    transition-property: all;
+    /* transition-delay: 3s; */
+    transition-timing-function: ease-out;
+
+   
+}
+.box:hover{
+     transform: translateY(-10px);
+     transform: scaleX(1.3);
+     transform: rotateY(90deg);
+     /* transform: skewX(45deg); */
+     transform: translate(100px) scale(2) rotate(60deg);
+     background-color: blueviolet;
+     border-radius: 50%;
+}
