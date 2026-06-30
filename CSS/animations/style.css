@@ -1,0 +1,90 @@
+/*
+what is an9mation: 
+animation allows elements to move automaticaly without user interaction(hover)
+
+why we need animation:
+
+1. loafing effect
+2. notificatons
+3. carousel
+4. typing effect
+
+
+syntax: 
+@keyframes spin{
+from{}
+to{}
+
+0%{
+properties
+}
+25%{}
+50%{}
+75%{}
+100%{}
+
+css
+
+.card{
+animation_name: spin;
+*/
+
+.box{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    animation-name: moveBox;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: backwards;
+   /* animation:animatiName dutration iteration direction fill mode animation_timing-function */
+animation-timing-function: ease-in-out;
+
+}
+.box:hover{
+     animation-play-state: paused;
+}
+
+@keyframes moveBox{
+    /* from{
+        transform: translate(0px,0px);
+    }
+    to{
+        transform: translate(300px,0px);
+    } */
+     0%{
+         transform: translate(0px,0px);
+     }
+     25%{
+         transform: translate(400px,0px);
+     }
+     50%{
+         transform: translate(400px,300px);
+     }
+     75%{
+         transform: translate(0px,300px);
+     }
+     100%{
+         transform: translate(0px,0px);
+     } 
+}
+
+
+.spinner{
+    width: 100px;
+    height: 100px;
+    border: 6px solid blue;
+    border-radius: 50%;
+    animation: spin 1s infinite ease-in;
+    border-top: 6px solid aqua  ;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
