@@ -1,0 +1,44 @@
+/*
+-div
+-buttons
+-banner images
+-cards
+-forms
+
+-backgroun-color: 
+-background-image: 
+
+*/
+
+body{
+    background-color: black;
+
+}
+.img1{
+    background-image: url("https://picsum.photos/120/100");
+}
+
+.box{
+   width:300px;
+   height: 200px;
+   border: 5px solid white; 
+   overflow: auto;
+}
+.repate1{
+    background-image: url("https://picsum.photos/120/100");
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+.size1{
+     background-image: url("https://picsum.photos/170/100");
+     background-repeat: no-repeat;
+     background-size: 100% 50%;
+}
+.scroll{
+     background-image: url("https://picsum.photos/300/200");
+     background-attachment: local;
+}
+.gradient{
+    background: conic-gradient(from 180deg, red,blue,yellow);
+}

@@ -88,3 +88,83 @@ animation-timing-function: ease-in-out;
         transform: rotate(360deg);
     }
 }
+
+.card{
+    width: 320px;
+    height: 420px;
+    border-radius: 20px;
+    background-color: aquamarine;
+    overflow: hidden;
+
+}
+.card>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.card-content{
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    transition-duration: 2s;
+    height: 420px;
+    opacity: 0.5;
+}
+.card:hover .card-content{
+    transform: translateY(-420px);
+}
+.typing{
+    width: 0%;
+    white-space: nowrap;
+    background-color: aquamarine;
+    overflow: hidden;
+    animation: typing 5s infinite steps(25);
+    border-right: 4px solid black;
+}
+
+
+@keyframes typing{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 30%;
+    }
+}
+
+
+.card1{
+    width: 300px;
+    height: 350px;
+    color: white;
+    font-size:50px ;
+}
+.inner-card{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    transform-style: preserve-3d;
+
+position: relative;
+transition-duration: 3s;
+}
+.front,.back{
+width: 100%;
+height: 100%;
+position: absolute;
+backface-visibility: hidden;
+
+}
+.front{
+    background-color: red;
+}
+.back{
+    background-color: blue;
+     transform: rotateY(180deg);
+
+
+}
+
+.card1:hover .inner-card{
+    transform: rotateY(180deg);
+}
