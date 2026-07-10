@@ -123,3 +123,175 @@ if([]){
 else{
     console.log("B");
 }
+
+// console.log((typeof ));
+
+
+/*
+
+
+switch(value/expression){
+case 1:
+    statements
+    break;
+case 2:
+    statements
+    break;
+
+default:
+    statements
+    break;
+}
+
+1use cases:
+rolling of diece
+-menu selection
+-loan application
+-role based acces
+
+
+executions flow:
+
+1. switch expression
+2. case values
+3. if case is matched with ecp value execute the bloxck of code
+4. no case is matched defaul case
+
+
+*/
+
+let grade = "A";
+
+switch(grade){
+    case "A":
+        console.log("Excellent");
+        break;
+    case "B":
+        console.log("Good");
+        break;
+    case "c":
+        console.log("Average");
+        break;
+    default:
+        console.log("fail");
+        break;
+}
+
+let menu = Number(prompt("choose Item \n1. Burger\n2.Pzza\n3.Pasta"));
+
+switch(menu){
+
+     default:
+        console.log("Item not available");
+        break;
+    case 1:
+        console.log(`burder price: 100`);
+        break;
+    case 2:
+        console.log(`Pizza Price: 200`);
+        break;
+    case 3:
+        console.log(`Pasta Price: 99`);
+        break;
+   
+}
+
+/*
+
+for(initialzation;condition;step){
+statemenmts
+}
+
+execution:
+1. initialzation(one time)
+2. codition
+3. if true statements
+4. step
+5. condiition
+6. statements
+
+4. false out of loop
+
+
+*/
+
+let array = ["A", "B","c","d"];
+
+for(let i = 0;i<array.length;i++){
+    console.log(array[i]);
+}
+
+/*
+-A
+-B
+-C
+-D
+
+<ul>
+li
+li
+li
+li
+</ul>
+
+*/
+
+
+// element.innerHTML = `
+// <li>${array[0]}</li>
+// <li>${array[1]}</li>
+// <li>${array[2]}</li>
+
+// <li>${array[3]}</li>
+
+// `
+
+let element = document.getElementById("list");
+
+for(let i = 0;i<array.length;i++){
+   element.innerHTML += `<li>${array[i]}</li>`
+}
+/*
+ul
+li B
+
+*/
+
+
+let products = [
+    {name:"laptop",
+        price:1000,
+        
+    },
+    {name:"Mobile",
+        price:100,
+        
+    },
+    {name:"Watch",
+        price:200,
+        
+    },
+    {name:"Tablet",
+        price:500,
+        
+    }
+]
+
+let container = document.getElementById("container");
+
+for(let i = 0;i<products.length;i++){
+    container.innerHTML += `
+    <div class="card">
+    <h2>${products[i].name}</h2>
+    <p>${products[i].price}</p>
+    </div>
+    `
+}
+
+/*
+
+
+
+
+*/
+
