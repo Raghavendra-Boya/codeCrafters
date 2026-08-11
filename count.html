@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+    <li>List-1</li>
+    <li>List-2</li>
+    <li>List-3</li>
+    <li>List-4</li>
+    <li>List-5</li>
+    <li>List-6</li>
+    <li>List-7</li>
+    <li>List-8</li>
+    <li>List-9</li>
+    <li>List-10</li>
+</ul>
+    <h1 id="count">Count:0</h1>
+    <button onclick="incr()">+</button>
+    <button onclick="decr()">-</button>
+
+    <script>
+
+        let element = document.getElementById("count");
+        let count = 0;
+        function incr(){
+            count++;
+            element.innerText= count;
+        }
+         function decr(){
+            count--;
+            element.innerText= count;
+        }
+    </script>
+</body>
+</html>

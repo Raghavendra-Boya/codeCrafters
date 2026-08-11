@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript To Do List</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100">
+
+<div class="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
+
+    <h1 class="text-3xl font-bold text-center mb-6">
+        📝 To Do List
+    </h1>
+
+    <!-- Add Task -->
+    <div class="flex gap-3">
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter Task..."
+            class="flex-1 border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+        >
+
+        <button
+            id="addBtn"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-lg">
+            Add
+        </button>
+    </div>
+
+    <!-- Search -->
+    <div class="mt-5">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Task..."
+            class="w-full border rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-green-500"
+        >
+    </div>
+
+    <!-- Filter -->
+    <div class="flex justify-center gap-3 mt-5">
+        <button onclick="filterTasks('all')" class="bg-gray-600 text-white px-4 py-2 rounded">
+            All
+        </button>
+
+        <button onclick="filterTasks('completed')" class="bg-green-600 text-white px-4 py-2 rounded">
+            Completed
+        </button>
+
+        <button onclick="filterTasks('pending')" class="bg-yellow-500 text-white px-4 py-2 rounded">
+            Pending
+        </button>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="mt-6 space-y-3"></ul>
+
+    <!-- Counter -->
+    <div class="grid grid-cols-3 gap-4 mt-8 text-center">
+
+        <div class="bg-blue-100 p-4 rounded">
+            <h2 class="font-bold">Total</h2>
+            <p id="total" class="text-xl">0</p>
+        </div>
+
+        <div class="bg-green-100 p-4 rounded">
+            <h2 class="font-bold">Completed</h2>
+            <p id="completed" class="text-xl">0</p>
+        </div>
+
+        <div class="bg-red-100 p-4 rounded">
+            <h2 class="font-bold">Pending</h2>
+            <p id="pending" class="text-xl">0</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+const taskInput = document.getElementById("taskInput");
+const searchInput = document.getElementById("searchInput");
+const taskList = document.getElementById("taskList");
+
+let currentFilter = "all";
+
+displayTasks();
+
+document.getElementById("addBtn").addEventListener("click", addTask);
+
+searchInput.addEventListener("keyup", displayTasks);
+
+// ---------------- Add Task ----------------
+
+function addTask(){
+
+    let value = taskInput.value.trim();
+
+    if(value==""){
+        alert("Please Enter Task");
+        return;
+    }
+
+    let task = {
+
+        id:Date.now(),
+
+        title:value,
+
+        completed:false
+
+    };
+
+    tasks.push(task);
+
+    saveData();
+
+    taskInput.value="";
+
+    displayTasks();
+
+}
+
+// ---------------- Display Tasks ----------------
+
+function displayTasks(){
+
+    taskList.innerHTML="";
+
+    let search = searchInput.value.toLowerCase();
+
+    let filtered = tasks.filter(task=>{
+
+        let match = task.title.toLowerCase().includes(search);
+
+        if(currentFilter=="completed"){
+            return task.completed && match;
+        }
+
+        if(currentFilter=="pending"){
+            return !task.completed && match;
+        }
+
+        return match;
+
+    });
+
+    filtered.forEach(task=>{
+
+        let li=document.createElement("li");
+
+        li.className="flex justify-between items-center bg-gray-100 p-3 rounded shadow";
+
+        li.innerHTML=`
+
+        <span class="${task.completed ? 'line-through text-gray-500':''}">
+            ${task.title}
+        </span>
+
+        <div class="space-x-2">
+
+            <button
+                onclick="toggleTask(${task.id})"
+                class="bg-green-500 text-white px-3 py-1 rounded">
+
+                ${task.completed ? "Undo":"Done"}
+
+            </button>
+
+            <button
+                onclick="editTask(${task.id})"
+                class="bg-yellow-500 text-white px-3 py-1 rounded">
+
+                Edit
+
+            </button>
+
+            <button
+                onclick="deleteTask(${task.id})"
+                class="bg-red-500 text-white px-3 py-1 rounded">
+
+                Delete
+
+            </button>
+
+        </div>
+
+        `;
+
+        taskList.appendChild(li);
+
+    });
+
+    updateCounter();
+
+}
+
+// ---------------- Delete ----------------
+
+function deleteTask(id){
+
+    tasks = tasks.filter(task=>task.id!=id);
+
+    saveData();
+
+    displayTasks();
+
+}
+
+// ---------------- Edit ----------------
+
+function editTask(id){
+
+    let task = tasks.find(task=>task.id==id);
+
+    let value = prompt("Edit Task",task.title);
+
+    if(value!=null && value.trim()!=""){
+
+        task.title=value;
+
+        saveData();
+
+        displayTasks();
+
+    }
+
+}
+
+// ---------------- Complete ----------------
+
+function toggleTask(id){
+
+    let task = tasks.find(task=>task.id==id);
+
+    task.completed=!task.completed;
+
+    saveData();
+
+    displayTasks();
+
+}
+
+// ---------------- Filter ----------------
+
+function filterTasks(type){
+
+    currentFilter=type;
+
+    displayTasks();
+
+}
+
+// ---------------- Counter ----------------
+
+function updateCounter(){
+
+    document.getElementById("total").innerText=tasks.length;
+
+    document.getElementById("completed").innerText=tasks.filter(task=>task.completed).length;
+
+    document.getElementById("pending").innerText=tasks.filter(task=>!task.completed).length;
+
+}
+
+// ---------------- Local Storage ----------------
+
+function saveData(){
+
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+
+}
+
+</script>
+
+</body>
+</html>

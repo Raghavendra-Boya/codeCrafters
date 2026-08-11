@@ -120,7 +120,24 @@ console.log(/\s/.test("Hello world"));
 //non-word charecter(\W)---,atches any charecter excepts letter, number, underscore
 //Quantifiers({n}{n,}{n,m})---specify how many time a charecter should appae
 
-``
+
+let mobilePattern = /^[6-9]\d{9}$/
+
+console.log(mobilePattern.test("5876543210"));
 
 
+let emailPattern = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-z]{2,}$/
 
+let userName = /^\w{5,15}$/
+
+// /^[A-Z]{5,15}$/
+
+let password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/
+
+let panCard= /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/
+
+
+let date = new Date();
+console.log(date);
+
+console.log(date.toLocaleTimeString());
