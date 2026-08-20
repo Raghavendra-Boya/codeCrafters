@@ -67,40 +67,149 @@ console.log("Hello AIT");
 
 console.log("first-line");
 
-getStudent(1,(student)=>{
-    console.log("Student Data Received");
-    console.log(student);
-    getSubjects(student.id,(subjects)=>{
-        console.log("Subjects Received");
-        console.log(subjects);
-        getMarks(subjects[0],(marks)=>{
-            console.log("Marks Received");
-            console.log(marks);
-        })
-    })
-})
+getStudent(1,displayStudents);
 
 
 console.log("Last-line");
 
 
-function getStudent(id,callback){
+function displayStudents(student){
+    console.log("STudent", student);
+getSubjects(student.id,displaySubjects)
+}
+
+function displaySubjects(subjects){
+    console.log("Subjects", subjects);
+    getMarks(subjects[0],displayMarks);
+}
+
+function displayMarks(marks){
+    console.log("Marks", marks);
+}
+
+
+// function getStudent(id,callback){
+//     setTimeout(()=>{
+//         console.log("Getting STudent Data from Database");
+//         callback({name:"Anil",age:20,id:id});
+//     },2000);
+// }
+
+// function getSubjects(id,callback){
+//     setTimeout(()=>{
+//         console.log("Getting Subjects of Student ID:" + id);
+//         callback(["Maths","Science","English"]);
+//     },2000);
+// }
+
+// function getMarks(subject,callback){
+//     setTimeout(()=>{
+//         console.log("Getting Marks of Subject: " + subject);
+//         callback(90);
+//     },2000);
+// }
+/*
+Promise:
+promis is nan object which is able to hold the result of an asyncronous operation
+
+syntax:
+let promise = new Promise(function(resolve,reject){
+    //asyncronous operation
     setTimeout(()=>{
+        const student = {id:1,name:"Anil",age:20};
+        resolve(student);
+    },2000);
+}
+
+promise.then((result)=>{clg(result)}).catch((error)=>{clg(error)});
+
+
+*/
+
+const promise = getStudent(1)
+console.log(promise);
+promise.then((student)=>getSubjects(student.id))
+.then((subjects)=>getMarks(subjects[0]))
+.then((mark)=>console.log(mark))
+.catch((error)=>console.log(error))
+
+// function getStudent(id){
+//    return new Promise((resolve,reject)=>{
+//      setTimeout(()=>{
+//         console.log("Getting STudent Data from Database");
+//         resolve({name:"Anil",age:20,id:id});
+//     },2000);
+//    })
+// }
+
+// function getSubjects(id){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//         console.log("Getting Subjects of Student ID:" + id);
+//         resolve(["Maths","Science","English"]);
+//     },2000);
+// }
+//     )}
+
+// function getMarks(subject){
+//    return new Promise((resolve,reject)=>{
+//      setTimeout(()=>{
+//         console.log("Getting Marks of Subject: " + subject);
+//         resolve(90);
+//     },2000);
+//    })
+// }
+
+/*
+Asunc/await
+asyn/await helps us to write the asynchronous code that looks like syncronous code,
+
+when we call the function(which is retuning promise), we can add await operator befor the function
+
+syntax:
+
+async function main(){
+    const student = await getStudent()
+    const subjects = await getSubjects();
+}
+
+ */
+
+
+function getStudent(id){
+   return new Promise((resolve,reject)=>{
+     setTimeout(()=>{
         console.log("Getting STudent Data from Database");
-        callback({name:"Anil",age:20,id:id});
+        resolve({name:"Anil",age:20,id:id});
     },2000);
+   })
 }
 
-function getSubjects(id,callback){
-    setTimeout(()=>{
+function getSubjects(id){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
         console.log("Getting Subjects of Student ID:" + id);
-        callback(["Maths","Science","English"]);
+        resolve(["Maths","Science","English"]);
     },2000);
+}
+    )}
+
+function getMarks(subject){
+   return new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+        console.log("Getting Marks of Subject: " + subject);
+        resolve(90);
+    },2000);
+   })
 }
 
-function getMarks(subject,callback){
-    setTimeout(()=>{
-        console.log("Getting Marks of Subject: " + subject);
-        callback(90);
-    },2000);
+async function displayData(){
+    const student = await getStudent(1);
+    const subjects = await getSubjects(student.id)
+    const mark = await getMarks(subjects[0])
+    console.log(mark);
+    console.log(student);
+    console.log(subjects);
 }
+
+displayData()
